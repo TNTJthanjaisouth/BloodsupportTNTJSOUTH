@@ -14,12 +14,12 @@ fetch(url)
         .getElementById("thead")
         .insertAdjacentHTML(
           "beforeend",
-          `<th>${data.table.cols[i].label}</th>`
+          `<th class="">${data.table.cols[i].label}</th>`
         );
     }
     // console.log(data.table.rows);
-    console.log(data.table.rows[9]);
-
+    // console.log(data.table.rows[9]);
+    // console.log(JSON.stringify(data.table.rows[11].c[10].v));
     for (let i = 0; i < data.table.rows.length; i++) {
       //   console.log(data.table.rows[i].c[i].v);
       //   console.warn("===================");
@@ -30,16 +30,34 @@ fetch(url)
         if (JSON.stringify(data.table.rows[i].c[j].v).slice(1, 5) === "Date") {
           tr.insertAdjacentHTML(
             "beforeend",
-            `<td>${data.table.rows[i].c[j].f}</td>`
+            `<td class="">${data.table.rows[i].c[j].f}</td>`
           );
           document.getElementById("tbody").appendChild(tr);
         } else {
-          tr.insertAdjacentHTML(
-            "beforeend",
-            `<td>${data.table.rows[i].c[j].v}</td>`
-          );
-          document.getElementById("tbody").appendChild(tr);
-          // console.log(data.table.rows[i].c[j].v);
+          if (
+            JSON.stringify(data.table.rows[i].c[j].v).slice(1, 10) ===
+            "not avail"
+          ) {
+            tr.insertAdjacentHTML(
+              "beforeend",
+              `<td class="" style="color:red">${data.table.rows[i].c[j].v}</td>`
+            );
+          } else if (
+            JSON.stringify(data.table.rows[i].c[j].v).slice(1, 6) === "avail"
+          ) {
+            tr.insertAdjacentHTML(
+              "beforeend",
+              `<td class="" style="color:green" >${data.table.rows[i].c[j].v}</td>`
+            );
+
+            // console.log(data.table.rows[i].c[j].v);
+          } else {
+            tr.insertAdjacentHTML(
+              "beforeend",
+              `<td class="">${data.table.rows[i].c[j].v}</td>`
+            );
+            document.getElementById("tbody").appendChild(tr);
+          }
         }
       }
     }
