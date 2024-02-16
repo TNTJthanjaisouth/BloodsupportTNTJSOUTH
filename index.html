@@ -3,17 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>BLood donor LIst</title>
+    <title>BLood donation</title>
   </head>
   <body>
-    <div>
-      <table>
-        <thead>
-          <tr id="thead"></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
+    <div class="container">
+      <div>
+        <select id="Blood_Type">
+          <option selected disabled>--Blood Type--</option>
+          <option>All</option>
+        </select>
+      </div>
+
+      <div>
+        <select id="Branch">
+          <option value="">--select branch--</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <div>
+        <select id="Avail_Or_Not">
+          <option>--Active or not--</option>
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="Not_active">Not Active</option>
+        </select>
+      </div>
+      <button
+        id="search"
+        onclick="alert('Work in progress... please check After someTime ')"
+      >
+        Search
+      </button>
     </div>
     <script type="text/javascript" src="script.js"></script>
   </body>
