@@ -4,37 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BLood donation</title>
+    <link rel="stylesheet" href="ui.css" />
   </head>
   <body>
     <div class="container">
       <div>
         <select id="Blood_Type">
-          <option selected disabled>--Blood Type--</option>
-          <option>All</option>
+          <option
+            selected
+            disabled
+            style="background-color: var(--violet); color: var(--white)"
+          >
+            --Blood Type--
+          </option>
+          <option value="all">All</option>
         </select>
       </div>
 
       <div>
         <select id="Branch">
-          <option value="">--select branch--</option>
+          <option
+            value=""
+            style="background-color: var(--violet); color: var(--white)"
+            selected
+            disabled
+          >
+            --select branch--
+          </option>
           <option value="all">All</option>
         </select>
       </div>
       <div>
         <select id="Avail_Or_Not">
-          <option>--Active or not--</option>
+          <option
+            style="background-color: var(--violet); color: var(--white)"
+            selected
+            disabled
+          >
+            --Active or not--
+          </option>
           <option value="all">All</option>
           <option value="active">Active</option>
           <option value="Not_active">Not Active</option>
         </select>
       </div>
-      <button
-        id="search"
-        onclick="alert('Work in progress... please check After someTime ')"
-      >
-        Search
-      </button>
+      <button id="search">Search</button>
     </div>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

@@ -7,14 +7,22 @@
     <title>BLood donor LIst</title>
   </head>
   <body>
-    <div>
-      <table>
+    <div style="text-align: center">
+      <table id="table-id">
         <thead>
           <tr id="thead"></tr>
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+      <div class="pagination" id="pagination"></div>
+      <button id="back" class="btn">Back</button>
     </div>
-    <script type="text/javascript" src="FetchDataSheet.js"></script>
+
+    <script type="module" src="AllData.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

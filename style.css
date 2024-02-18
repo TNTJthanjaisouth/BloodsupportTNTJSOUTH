@@ -29,3 +29,24 @@ table th {
 .red {
   color: red;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+}
+.pagination button {
+  margin: 10px;
+}
+.btn {
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #c97c7c;
+  border: 1px solid #04aa6d;
+}
+.btn:hover {
+  background-color: #d85555;
+  cursor: pointer;
+}

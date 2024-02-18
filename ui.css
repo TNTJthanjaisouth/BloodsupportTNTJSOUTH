@@ -1,0 +1,71 @@
+:root {
+  --violet: rgb(173, 21, 233);
+  --white: #fff;
+  --black: #000;
+  --lightViolet: rgb(232, 211, 240);
+
+  --font: "Courier New", Courier, monospace;
+}
+body {
+  background-color: #d4cdcd5b;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 500px;
+  height: 220px;
+  margin: 50px auto;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: var(--lightViolet);
+  position: relative;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 19px;
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--font);
+}
+select:focus {
+  outline: 1px solid var(--violet);
+}
+
+button {
+  font-family: var(--font);
+  position: absolute;
+  top: 80%;
+  left: 25%;
+  background-color: var(--violet);
+  color: var(--white);
+  cursor: pointer;
+  width: 300px;
+
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 20px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  button {
+    padding: 8px;
+    width: 150px;
+    margin-top: 6px;
+  }
+}

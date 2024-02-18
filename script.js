@@ -1,48 +1,61 @@
-const sheet_id = "1MLobdItp0ySFPteZipSz-96SOG_8PB82MARFbYAFEnc";
-const sheet_title = "sample_db";
-const sheet_range = "A1:M52";
-const url = `https://docs.google.com/spreadsheets/d/${sheet_id}/gviz/tq?sheet=${sheet_title}&range=${sheet_range}`;
+import { fetchData } from "./FetchDataSheet.js";
+const Branch_ = document.getElementById("Branch");
+const Bloodtype = document.getElementById("Blood_Type");
+const Search = document.getElementById("search");
+const Avail_Or_Not = document.getElementById("Avail_Or_Not");
+fetchData().then((td) => {
+  console.log(td);
+  const tableData = td;
+  // console.log(tableData);
+  const Bloodtype_opt = [];
+  const Branch = [];
 
-fetch(url)
-  .then((res) => res.text())
-  .then((rep) => {
-    const data = JSON.parse(rep.substr(47).slice(0, -2));
-    const tableData = [];
-
-    data.table.rows.forEach((row) => {
-      const rowData = {};
-      row.c.forEach((cell, index) => {
-        const value = cell.v;
-        const header = data.table.cols[index].label;
-        rowData[header] = value;
-      });
-      tableData.push(rowData);
-      // console.log(tableData);
-    });
-
-    const Bloodtype_opt = [];
-    const Branch = [];
-
-    tableData.forEach((x, y) => {
-      Bloodtype_opt.push(x.BloodGroup);
-      Branch.push(x.Branch);
-      console.log(x);
-    });
-    const Blood_Type_opt = [...new Set(Bloodtype_opt)];
-    const Branch_opt = [...new Set(Branch)];
-    Branch_opt.forEach((x) => {
-      const Branch_ = document.getElementById("Branch");
-      const option = document.createElement("option");
-      option.innerHTML = x;
-      option.className = "option";
-      Branch_.appendChild(option);
-    });
-    Blood_Type_opt.forEach((x) => {
-      const Bloodtype = document.getElementById("Blood_Type");
-      const option = document.createElement("option");
-      option.innerHTML = x;
-      option.className = "option";
-      Bloodtype.appendChild(option);
-    });
-    console.log(Blood_Type_opt, Branch_opt);
+  tableData.forEach((x, y) => {
+    Bloodtype_opt.push(x.BloodGroup);
+    Branch.push(x.Branch);
+    // console.log(x);
   });
+
+  const Blood_Type_opt = [...new Set(Bloodtype_opt)];
+  const Branch_opt = [...new Set(Branch)];
+  Branch_opt.forEach((val) => {
+    const option = document.createElement("option");
+    option.innerHTML = val;
+    option.value = val;
+
+    option.className = "option";
+    Branch_.appendChild(option);
+  });
+  Blood_Type_opt.forEach((val) => {
+    const option = document.createElement("option");
+    option.innerHTML = val;
+    option.className = "option";
+    option.value = val;
+    Bloodtype.appendChild(option);
+  });
+  function SearchData(id1, id2, id3) {
+    let value1 = id1.value;
+    let value2 = id2.value;
+    let value3 = id3.value;
+    if (value1 === "all" && value2 == "all" && value3 == "all") {
+      console.log(tableData);
+      location.replace("donarList.html");
+    }
+  }
+  Search.addEventListener("click", () => {
+    SearchData(Bloodtype, Branch_, Avail_Or_Not);
+  });
+});
+// console.log(Blood_Type_opt, Branch_opt);
+
+Branch_.addEventListener("change", () => {
+  console.log(Branch_.value);
+});
+function Listener(variable, eL) {
+  variable.addEventListener(`${eL}`, () => {
+    console.log(variable.value);
+  });
+}
+Listener(Branch_, "change");
+Listener(Bloodtype, "change");
+Listener(Avail_Or_Not, "change");
