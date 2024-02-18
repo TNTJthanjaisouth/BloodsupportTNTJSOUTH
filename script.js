@@ -3,6 +3,32 @@ const Branch_ = document.getElementById("Branch");
 const Bloodtype = document.getElementById("Blood_Type");
 const Search = document.getElementById("search");
 const Avail_Or_Not = document.getElementById("Avail_Or_Not");
+const tbody = document.getElementById("tbody");
+const thead = document.getElementById("thead");
+//--------------------function-------------------
+function AddFilterinHtml(filteredData) {
+  const headings = Object.keys(filteredData[0]);
+  headings.forEach((col) => {
+    thead.insertAdjacentHTML("beforeend", `<th class="">${col}</th>`);
+    // console.log(col);
+  });
+  filteredData.forEach((row, index) => {
+    row.SNo = index + 1;
+
+    const values = Object.values(row);
+    const tr = document.createElement("tr");
+    values.forEach((rows) => {
+      let tdContent = rows;
+
+      const td = document.createElement("td");
+      td.textContent = tdContent;
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+    // console.log(Object.values(row));
+  });
+}
+//------------------------------------------------------
 fetchData().then((td) => {
   console.log(td);
   const tableData = td;
@@ -40,9 +66,73 @@ fetchData().then((td) => {
     if (value1 === "all" && value2 == "all" && value3 == "all") {
       console.log(tableData);
       location.replace("donarList.html");
+    } else if (
+      value1 === "A +ve" ||
+      value1 === "O +ve" ||
+      value1 === "AB +ve" ||
+      value1 === "B +ve" ||
+      value1 === "A -ve" ||
+      value1 === "O -ve"
+    ) {
+      if (
+        (value2 === "all" && value3 === "all") ||
+        (value2 === "all" && value3 === "avail")
+      ) {
+        function filterObjects(array, condition) {
+          return array.filter((item) => condition(item));
+        }
+
+        // Define the condition for filtering (age less than 30 in this example)
+        const filteredArray = filterObjects(
+          tableData,
+          (item) => item.AvailableOrNot === value3
+        );
+
+        console.log(filteredArray);
+        AddFilterinHtml(filteredArray);
+        return;
+      }
+      function filterObjects(array, condition) {
+        return array.filter((item) => condition(item));
+      }
+
+      // Define the condition for filtering (age less than 30 in this example)
+      const filteredArray = filterObjects(
+        tableData,
+        (item) => item.BloodGroup === value1
+      );
+
+      console.log(filteredArray);
+      AddFilterinHtml(filteredArray);
+      return;
+    } else if (value1 == "" || value2 == "" || value3 == "") {
+      alert("Please select all given fields");
+      return;
     }
+    // } else if (
+    //   (value1 === "A +ve" && value2 === "all" && value3 === "avail") ||
+    //   (value1 === "O +ve" && value2 === "all" && value3 === "avail") ||
+    //   (value1 === "AB +ve" && value2 === "all" && value3 === "avail") ||
+    //   (value1 === "B +ve" && value2 === "all" && value3 === "avail") ||
+    //   (value1 === "A -ve" && value2 === "all" && value3 === "avail") ||
+    //   (value1 === "O -ve" && value2 === "all" && value3 === "avail")
+    // ) {
+    //   function filterObjects(array, condition) {
+    //     return array.filter((item) => condition(item));
+    //   }
+
+    //   // Define the condition for filtering (age less than 30 in this example)
+    //   const filteredArray = filterObjects(
+    //     tableData,
+    //     (item) => item.AvailableOrNot === value3
+    //   );
+
+    //   console.log(filteredArray);
+    //   AddFilterinHtml(filteredArray);
+    // }
   }
   Search.addEventListener("click", () => {
+    // console.log(Bloodtype.value);
     SearchData(Bloodtype, Branch_, Avail_Or_Not);
   });
 });

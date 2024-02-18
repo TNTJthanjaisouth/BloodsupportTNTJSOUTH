@@ -9,20 +9,21 @@
   <body>
     <div class="container">
       <div>
-        <select id="Blood_Type">
+        <select id="Blood_Type" required>
           <option
             selected
             disabled
             style="background-color: var(--violet); color: var(--white)"
+            value=""
           >
             --Blood Type--
           </option>
-          <option value="all">All</option>
+          <!-- <option value="all">All</option> -->
         </select>
       </div>
 
       <div>
-        <select id="Branch">
+        <select id="Branch" required>
           <option
             value=""
             style="background-color: var(--violet); color: var(--white)"
@@ -34,22 +35,30 @@
           <option value="all">All</option>
         </select>
       </div>
+
       <div>
-        <select id="Avail_Or_Not">
+        <select id="Avail_Or_Not" required>
           <option
             style="background-color: var(--violet); color: var(--white)"
             selected
             disabled
+            value=""
           >
             --Active or not--
           </option>
           <option value="all">All</option>
-          <option value="active">Active</option>
-          <option value="Not_active">Not Active</option>
+          <option value="avail">Active</option>
+          <option value="not avail">Not Active</option>
         </select>
       </div>
-      <button id="search">Search</button>
+      <button id="search" type="submit">Search</button>
     </div>
+    <table id="table-id">
+      <thead>
+        <tr id="thead"></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
     <script type="module" src="script.js"></script>
   </body>
 </html>

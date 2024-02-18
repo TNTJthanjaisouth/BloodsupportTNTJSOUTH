@@ -14,7 +14,10 @@ function fetchData() {
       data.table.rows.forEach((row) => {
         const rowData = {};
         row.c.forEach((cell, index) => {
-          const value = cell.v;
+          let value = cell.v;
+          if (typeof value === "string" && value.startsWith("Date")) {
+            value = cell.f;
+          }
           const header = data.table.cols[index].label;
           rowData[header] = value;
         });
