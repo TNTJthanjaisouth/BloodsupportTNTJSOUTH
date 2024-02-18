@@ -81,6 +81,6 @@ function addPagination() {
 }
 
 const pageSize = 10; // Set as needed
-document.getElementsById("Back").addEventListener("click", () => {
+document.getElementById("back").addEventListener("click", () => {
   location.replace("index.html");
 });
