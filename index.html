@@ -53,7 +53,7 @@
       <button id="search" type="submit">Search</button>
     </div>
 
-    <div class="table-container">
+    <div class="table-container" aria-describedby="tooltip">
       <div id="err"></div>
       <table id="table-id">
         <thead>
@@ -61,6 +61,9 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+    </div>
+    <div role="tooltip" id="tooltip">
+      <marquee>Scroll Left... </marquee>
     </div>
 
     <script type="module" src="script.js"></script>

@@ -151,3 +151,24 @@ a {
 a:hover {
   color: rgb(91, 116, 255);
 }
+
+[role="tooltip"],
+.hidetooltip.hidetooltip.hidetooltip + [role="tooltip"] {
+  visibility: hidden;
+  position: relative;
+  text-align: center;
+  width: 100px;
+  left: 50%;
+  background: rgba(0, 0, 0, 0.459);
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+}
+[aria-describedby]:hover,
+[aria-describedby]:focus {
+  position: relative;
+}
+[aria-describedby]:hover + [role="tooltip"],
+[aria-describedby]:focus + [role="tooltip"] {
+  visibility: visible;
+}
