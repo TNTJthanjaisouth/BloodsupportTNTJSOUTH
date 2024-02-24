@@ -17,7 +17,7 @@ body {
 
 .container {
   max-width: 500px;
-  height: 220px;
+  height: 250px;
   margin: 50px auto;
   border-radius: 20px;
   padding: 30px;
@@ -48,7 +48,7 @@ button {
   background-color: var(--violet);
   color: var(--white);
   cursor: pointer;
-  width: 300px;
+  width: 250px;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -136,11 +136,11 @@ table th {
   }
 
   .table-container {
-    padding: 5px;
+    padding: 0;
     max-width: 450vw;
     max-height: 400vh;
     overflow: scroll;
-    margin: 10px;
+    margin: 0;
   }
 }
 a {
