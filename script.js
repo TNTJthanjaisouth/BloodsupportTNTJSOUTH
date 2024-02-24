@@ -22,9 +22,26 @@ function AddFilterinHtml(filteredData) {
     row.SNo = index + 1;
 
     const tr = document.createElement("tr");
+
     const tdContent = Object.values(row)
-      .map((value) => `<td>${value}</td>`)
+      .map((value) => {
+        if (value === "avail") {
+          return `<td style=color:green;>Available</td>`;
+        } else if (value === "not avail") {
+          return `<td style=color:red;>Not Available</td>`;
+        } else if (typeof value === "number") {
+          // console.log(JSON.stringify(value).length);
+          if (JSON.stringify(value).length === 10) {
+            return `<td><a href='tel:+91${value}'>${value}</a></td>`;
+          } else {
+            return `<td>${value}</td>`;
+          }
+        } else {
+          return `<td>${value}</td>`;
+        }
+      })
       .join("");
+
     tr.innerHTML = tdContent;
     tbody.appendChild(tr);
   });

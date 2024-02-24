@@ -143,3 +143,11 @@ table th {
     margin: 10px;
   }
 }
+a {
+  text-decoration: none;
+
+  color: rgb(76, 0, 255);
+}
+a:hover {
+  color: rgb(91, 116, 255);
+}
