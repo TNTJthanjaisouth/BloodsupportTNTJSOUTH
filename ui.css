@@ -1,14 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700");
 :root {
   --violet: rgb(173, 21, 233);
+  --lightViolet: rgb(232, 211, 240);
   --white: #fff;
   --black: #000;
-  --lightViolet: rgb(232, 211, 240);
-
-  --font: "Courier New", Courier, monospace;
+  --font: "Quicksand", sans-serif;
 }
+
 body {
   background-color: #d4cdcd5b;
-  font-family: Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -34,12 +35,13 @@ select {
   font-size: 20px;
   font-family: var(--font);
 }
+
 select:focus {
   outline: 1px solid var(--violet);
 }
 
 button {
-  font-family: var(--font);
+  /* font-family: var(--font); */
   position: absolute;
   top: 80%;
   left: 25%;
@@ -47,17 +49,16 @@ button {
   color: var(--white);
   cursor: pointer;
   width: 300px;
-
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-
   font-size: 20px;
 }
+
 table {
   margin: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: var(--font); */
   border-collapse: collapse;
   width: 100%;
   color: rgb(11, 44, 44);
@@ -83,24 +84,25 @@ table th {
   background-color: var(--violet);
   color: white;
 }
+
 .table-container {
   padding: 5px;
   max-width: 500vw;
   max-height: 500vh;
-  /* border: 2px solid var(--violet); */
   overflow: scroll;
   margin: 10px;
   border-radius: 20px;
 }
+
 /* Track */
 ::-webkit-scrollbar {
   width: 3px;
-  height: 5px; /* width of the scrollbar */
+  height: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--lightViolet); /* color of the scrollbar handle */
+  background: var(--lightViolet);
   border-radius: 20px;
 }
 
@@ -111,15 +113,13 @@ table th {
 
 .Error {
   color: rgb(236, 227, 227);
-  background-color: #fd2424;
+  background-color: #f82525;
   padding: 10px;
   font-weight: bolder;
   border-radius: 20px;
   text-align: center;
   font-size: 18px;
-  font-family: "Courier New", Courier, monospace;
-
-  /* Add some spacing between input and error message */
+  /* font-family: var(--font); */
 }
 
 /* Responsive Styles */
@@ -139,7 +139,6 @@ table th {
     padding: 5px;
     max-width: 450vw;
     max-height: 400vh;
-    /* border: 2px solid rgb(52, 175, 36); */
     overflow: scroll;
     margin: 10px;
   }
