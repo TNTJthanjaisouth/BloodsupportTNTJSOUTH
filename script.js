@@ -92,6 +92,8 @@ fetchData().then((td) => {
 
   // Function to handle search functionality
   function searchRecords() {
+    Search.innerHTML = `Search`;
+
     const value1 = Bloodtype.value;
     const value2 = Branch_.value;
     const value3 = Avail_Or_Not.value;
@@ -121,5 +123,8 @@ fetchData().then((td) => {
     }
   }
 
-  Search.addEventListener("click", searchRecords);
+  Search.addEventListener("click", () => {
+    Search.innerHTML = `Searching...  <i class="fa fa-spinner fa-spin"></i>`;
+    setTimeout(searchRecords, 1000);
+  });
 });
