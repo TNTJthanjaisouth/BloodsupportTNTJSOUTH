@@ -1,6 +1,6 @@
 const sheet_id = "1MLobdItp0ySFPteZipSz-96SOG_8PB82MARFbYAFEnc";
 const sheet_title = "sample_db";
-const sheet_range = "A1:M52";
+const sheet_range = "A1:K52";
 const url = `https://docs.google.com/spreadsheets/d/${sheet_id}/gviz/tq?sheet=${sheet_title}&range=${sheet_range}`;
 
 // Define a function to fetch data and return a Promise

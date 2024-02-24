@@ -87,7 +87,7 @@ table th {
   padding: 5px;
   max-width: 500vw;
   max-height: 500vh;
-  border: 2px solid var(--violet);
+  /* border: 2px solid var(--violet); */
   overflow: scroll;
   margin: 10px;
   border-radius: 20px;
@@ -112,11 +112,11 @@ table th {
 .Error {
   color: rgb(236, 227, 227);
   background-color: #fd2424;
-  padding: 15px;
+  padding: 10px;
   font-weight: bolder;
   border-radius: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Courier New", Courier, monospace;
 
   /* Add some spacing between input and error message */
