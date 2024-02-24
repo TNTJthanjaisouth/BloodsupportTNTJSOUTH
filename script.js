@@ -104,12 +104,12 @@ fetchData().then((td) => {
     // console.table(filter);
     if (filter.length > 0) {
       AddFilterinHtml(filter);
-      document.getElementById("dd").innerHTML = "";
-      document.getElementById("dd").removeAttribute("class");
+      document.getElementById("err").innerHTML = "";
+      document.getElementById("err").removeAttribute("class");
     } else {
       thead.innerHTML = "";
       tbody.innerHTML = "";
-      error("dd", "No Record Found !");
+      error("err", "No Record Found !");
     }
   }
   Search.addEventListener("click", () => {
