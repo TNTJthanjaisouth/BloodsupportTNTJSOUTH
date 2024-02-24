@@ -26,6 +26,28 @@ function fetchData() {
       return tableData; // Return tableData once it's populated
     });
 }
+//--------------------------------------------------------
+function orderedData(array, opt, need) {
+  const filterByOpt = [];
+  if (opt === "all") {
+    array.forEach((row) => {
+      if (row[need] === "avail" || row[need] === "not avail") {
+        // console.log("success", row[need]);
+        filterByOpt.push(row);
+      } else {
+        filterByOpt.push(row);
+      }
+    });
+  } else {
+    array.forEach((row) => {
+      if (row[need] === opt) {
+        // console.log("success", row[need]);
+        filterByOpt.push(row);
+      }
+    });
+  }
+  return filterByOpt;
+}
 
 // Call fetchData and then use the returned data
 
@@ -34,4 +56,4 @@ function fetchData() {
 
 // If you need to use tableData in another function, you should call that function within the .then() block
 
-export { fetchData };
+export { fetchData, orderedData };
