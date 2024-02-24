@@ -9,67 +9,92 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div>
-        <select id="Blood_Type" required>
-          <option
-            selected
-            disabled
-            style="background-color: var(--violet); color: var(--white)"
-            value=""
-          >
-            --Blood Type--
-          </option>
-          <!-- <option value="all">All</option> -->
-        </select>
-      </div>
-      <div>
-        <select id="Branch" required>
-          <option
-            value=""
-            style="background-color: var(--violet); color: var(--white)"
-            selected
-            disabled
-          >
-            --select branch--
-          </option>
-          <option value="all">All</option>
-        </select>
+    <div class="wrapper">
+      <header>
+        <nav>
+          <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+          </div>
+
+          <div class="logo">TNTJ THANJAI</div>
+
+          <div class="menu">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="container">
+        <div>
+          <select id="Blood_Type" required>
+            <option
+              selected
+              disabled
+              style="background-color: var(--violet); color: var(--white)"
+              value=""
+            >
+              --Blood Type--
+            </option>
+            <!-- <option value="all">All</option> -->
+          </select>
+        </div>
+        <div>
+          <select id="Branch" required>
+            <option
+              value=""
+              style="background-color: var(--violet); color: var(--white)"
+              selected
+              disabled
+            >
+              --select branch--
+            </option>
+            <option value="all">All</option>
+          </select>
+        </div>
+
+        <div>
+          <select id="Avail_Or_Not" required>
+            <option
+              style="background-color: var(--violet); color: var(--white)"
+              selected
+              disabled
+              value=""
+            >
+              --Active or not--
+            </option>
+            <option value="all">All</option>
+            <option value="avail">Active</option>
+            <option value="not avail">Not Active</option>
+          </select>
+        </div>
+        <button id="search" type="submit">Search</button>
       </div>
 
-      <div>
-        <select id="Avail_Or_Not" required>
-          <option
-            style="background-color: var(--violet); color: var(--white)"
-            selected
-            disabled
-            value=""
-          >
-            --Active or not--
-          </option>
-          <option value="all">All</option>
-          <option value="avail">Active</option>
-          <option value="not avail">Not Active</option>
-        </select>
+      <div class="table-container" aria-describedby="tooltip">
+        <div id="err"></div>
+        <table id="table-id">
+          <thead>
+            <tr id="thead"></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
       </div>
-      <button id="search" type="submit">Search</button>
+      <div role="tooltip" id="tooltip">
+        <marquee>Scroll Left... </marquee>
+      </div>
     </div>
-
-    <div class="table-container" aria-describedby="tooltip">
-      <div id="err"></div>
-      <table id="table-id">
-        <thead>
-          <tr id="thead"></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-    <div role="tooltip" id="tooltip">
-      <marquee>Scroll Left... </marquee>
-    </div>
-
     <script type="module" src="script.js"></script>
   </body>
 </html>
