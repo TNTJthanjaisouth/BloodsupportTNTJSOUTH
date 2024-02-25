@@ -146,3 +146,11 @@ $(window).on("scroll", function () {
     $("nav").removeClass("black");
   }
 });
+
+var menuIcon = document.getElementById("menu");
+
+menuIcon.addEventListener("click", () => {
+  // element.classList.remove("fa-bars");
+  menuIcon.classList.toggle("fa-times");
+  menuIcon.classList.toggle("fa-bars");
+});
