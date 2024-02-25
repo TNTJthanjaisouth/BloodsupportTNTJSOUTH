@@ -149,6 +149,22 @@ $(window).on("scroll", function () {
 
 var menuIcon = document.getElementById("menu");
 var menu = document.querySelector(".menu-icon");
+var overlay = document.querySelector(".overlay");
+var close = document.querySelector(".close");
+var RegForm_btn = document.getElementById("Reg_btnLink");
+var iframe = document.getElementById("Donar_reg_form");
+RegForm_btn.addEventListener("click", () => {
+  overlay.style.display = "block";
+  iframe.style.display = "block";
+});
+overlay.addEventListener("click", () => {
+  overlay.style.display = "none";
+  iframe.style.display = "none";
+});
+close.addEventListener("click", () => {
+  overlay.style.display = "none";
+  iframe.style.display = "none";
+});
 
 menu.addEventListener("click", () => {
   // element.classList.remove("fa-bars");
