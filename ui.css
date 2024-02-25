@@ -127,6 +127,35 @@ table th {
   /* font-family: var(--font); */
 }
 
+.Reg_form_iframe {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  z-index: 1000;
+  transform: translate(50%, -50%);
+  padding: 10px;
+  display: none;
+  padding: 20px;
+  /* background-color: #000; */
+}
+.Reg_form_iframe iframe {
+  height: 500px;
+  width: 600px;
+  border-radius: 10px;
+  border: 2px solid var(--violet);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1d0417e8;
+  /* Adjust the opacity (4th value) to control dimness */
+  display: none;
+  z-index: 999; /* Make sure the overlay appears above other elements */
+}
+
 /* Responsive Styles */
 @media only screen and (max-width: 600px) {
   .container {
@@ -155,6 +184,22 @@ table th {
     max-height: 400vh;
     overflow: scroll;
     margin: 0;
+  }
+  .Reg_form_iframe {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    z-index: 1000;
+    transform: translate(50%, -50%);
+    padding: 10px;
+    display: none;
+    padding: 20px;
+  }
+  .Reg_form_iframe iframe {
+    height: 650px;
+    width: 340px;
+    border-radius: 10px;
+    border: 2px solid var(--violet);
   }
 }
 a {
@@ -305,31 +350,4 @@ nav ul li a {
     padding: 10px 20px;
     line-height: 50px;
   }
-}
-.Reg_form_iframe {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  z-index: 1000;
-  transform: translate(50%, -50%);
-  padding: 10px;
-  display: none;
-  padding: 20px;
-  /* background-color: #000; */
-}
-.Reg_form_iframe iframe {
-  height: 500px;
-  width: 300px;
-  border-radius: 10px;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #1d0417e8;
-  /* Adjust the opacity (4th value) to control dimness */
-  display: none;
-  z-index: 999; /* Make sure the overlay appears above other elements */
 }

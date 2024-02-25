@@ -104,6 +104,7 @@ fetchData().then((td) => {
     }
 
     let filter;
+
     if (value2 === "all" && value3 === "all") {
       filter = orderedData(tableData, value1, "BloodGroup");
     } else {
@@ -146,7 +147,7 @@ $(window).on("scroll", function () {
     $("nav").removeClass("black");
   }
 });
-
+//----------------------------------------------------------------
 var menuIcon = document.getElementById("menu");
 var menu = document.querySelector(".menu-icon");
 var overlay = document.querySelector(".overlay");

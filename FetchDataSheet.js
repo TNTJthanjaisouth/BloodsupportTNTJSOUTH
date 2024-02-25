@@ -31,12 +31,8 @@ function orderedData(array, opt, need) {
   const filterByOpt = [];
   if (opt === "all") {
     array.forEach((row) => {
-      if (row[need] === "avail" || row[need] === "not avail") {
-        // console.log("success", row[need]);
-        filterByOpt.push(row);
-      } else {
-        filterByOpt.push(row);
-      }
+      // console.log("success", row[need]);
+      filterByOpt.push(row);
     });
   } else {
     array.forEach((row) => {
