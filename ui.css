@@ -221,7 +221,7 @@ nav ul {
   text-align: right;
   margin: 0;
   padding-right: 20px;
-  transition: 1s;
+  transition: 1.5s ease-in;
 }
 
 nav.black ul {
