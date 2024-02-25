@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #bae4d2ad;
+  background-color: #d1e7de;
   font-family: var(--font);
   margin: 0;
   padding: 0;
@@ -75,13 +75,16 @@ table th {
   border: 1px solid #9992d8;
   padding: 10px;
 }
+table tr {
+  background-color: var(--navTxtColor);
+}
 
 table tr:nth-child(even) {
   background-color: var(--lightViolet);
 }
 
 table tr:hover {
-  background-color: #ddd;
+  background-color: #dd98dd;
 }
 
 table th {
@@ -184,6 +187,7 @@ table th {
     max-height: 400vh;
     overflow: scroll;
     margin: 0;
+    border-radius: 10px;
   }
   .Reg_form_iframe {
     position: absolute;
