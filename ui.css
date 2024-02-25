@@ -259,6 +259,9 @@ nav ul li a {
 }
 
 @media (max-width: 786px) {
+  header {
+    height: 7vh;
+  }
   .logo {
     position: fixed;
     top: 0;
