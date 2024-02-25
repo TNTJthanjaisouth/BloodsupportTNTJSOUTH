@@ -226,7 +226,7 @@ nav ul {
 }
 
 nav.black ul {
-  background: var(--navTxtColor);
+  background: rgb(198, 25, 204);
 }
 
 nav ul li {
