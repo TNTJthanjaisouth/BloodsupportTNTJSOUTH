@@ -148,8 +148,9 @@ $(window).on("scroll", function () {
 });
 
 var menuIcon = document.getElementById("menu");
+var menu = document.querySelector(".menu-icon");
 
-menuIcon.addEventListener("click", () => {
+menu.addEventListener("click", () => {
   // element.classList.remove("fa-bars");
   menuIcon.classList.toggle("fa-times");
   menuIcon.classList.toggle("fa-bars");
