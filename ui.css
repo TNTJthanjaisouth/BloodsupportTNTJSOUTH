@@ -139,6 +139,8 @@ table th {
   padding: 10px;
   display: none;
   padding: 20px;
+  transition: all 5s ease-in-out;
+}
   /* background-color: #000; */
 }
 .Reg_form_iframe iframe {
