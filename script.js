@@ -6,7 +6,19 @@ const Search = document.getElementById("search");
 const Avail_Or_Not = document.getElementById("Avail_Or_Not");
 const tbody = document.getElementById("tbody");
 const thead = document.getElementById("thead");
+function onchangeToHideErrMess(id) {
+  const elem = document.getElementById("err");
+  const Event = document.getElementById(id);
 
+  // console.log(Event);
+  Event.addEventListener("click", () => {
+    elem.innerHTML = "";
+    elem.removeAttribute("class");
+  });
+}
+onchangeToHideErrMess("Branch");
+onchangeToHideErrMess("Blood_Type");
+onchangeToHideErrMess("Avail_Or_Not");
 // Function to add filtered data to HTML
 function AddFilterinHtml(filteredData) {
   thead.innerHTML = "";
@@ -63,7 +75,16 @@ fetchData().then((td) => {
   const Branch_opt = [...new Set(Branch)];
 
   Branch_opt.forEach((val) => {
-    addOptionToDropdown(Branch_, val);
+    if (val === undefined) {
+      Bloodtype.setAttribute("disabled", "true");
+      Branch_.setAttribute("disabled", "true");
+      Avail_Or_Not.setAttribute("disabled", "true");
+    } else {
+      Bloodtype.removeAttribute("disabled");
+      Branch_.removeAttribute("disabled");
+      Avail_Or_Not.removeAttribute("disabled");
+      addOptionToDropdown(Branch_, val);
+    }
   });
 
   Blood_Type_opt.forEach((val) => {
@@ -92,35 +113,41 @@ fetchData().then((td) => {
 
   // Function to handle search functionality
   function searchRecords() {
+    console.log(Bloodtype.hasAttribute("disabled", "true"));
     Search.innerHTML = `Search`;
 
     const value1 = Bloodtype.value;
     const value2 = Branch_.value;
     const value3 = Avail_Or_Not.value;
-
-    if (value1 === "" || value2 === "" || value3 === "") {
-      alert("Please select all given fields");
-      return;
-    }
-
-    let filter;
-
-    if (value2 === "all" && value3 === "all") {
-      filter = orderedData(tableData, value1, "BloodGroup");
+    if (Bloodtype.hasAttribute("disabled", "true") === true) {
+      displayError("err", "Values Not Found.. Please Contact Admin ");
+      // setTimeout(() => location.reload(), 4000);
     } else {
-      filter = orderedData(tableData, value1, "BloodGroup");
-      filter = orderedData(filter, value2, "Branch");
-      filter = orderedData(filter, value3, "AvailableOrNot");
-    }
+      if (value1 === "" || value2 === "" || value3 === "") {
+        // alert("Please select all given fields");
+        displayError("err", "Please select all given fields...");
+        return;
+      }
 
-    if (filter.length > 0) {
-      AddFilterinHtml(filter);
-      document.getElementById("err").innerHTML = "";
-      document.getElementById("err").removeAttribute("class");
-    } else {
-      thead.innerHTML = "";
-      tbody.innerHTML = "";
-      displayError("err", "No Record Found !");
+      let filter;
+
+      if (value2 === "all" && value3 === "all") {
+        filter = orderedData(tableData, value1, "BloodGroup");
+      } else {
+        filter = orderedData(tableData, value1, "BloodGroup");
+        filter = orderedData(filter, value2, "Branch");
+        filter = orderedData(filter, value3, "AvailableOrNot");
+      }
+
+      if (filter.length > 0) {
+        AddFilterinHtml(filter);
+        document.getElementById("err").innerHTML = "";
+        document.getElementById("err").removeAttribute("class");
+      } else {
+        thead.innerHTML = "";
+        tbody.innerHTML = "";
+        displayError("err", "No Record Found !");
+      }
     }
   }
 

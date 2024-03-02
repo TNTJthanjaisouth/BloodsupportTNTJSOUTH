@@ -7,24 +7,41 @@ console.log(url);
 // Define a function to fetch data and return a Promise
 function fetchData() {
   return fetch(url)
-    .then((res) => res.text())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.text();
+    })
     .then((rep) => {
       const data = JSON.parse(rep.substr(47).slice(0, -2));
       const tableData = [];
 
       data.table.rows.forEach((row) => {
         const rowData = {};
-        row.c.forEach((cell, index) => {
-          let value = cell.v;
-          if (typeof value === "string" && value.startsWith("Date")) {
-            value = cell.f;
-          }
-          const header = data.table.cols[index].label;
-          rowData[header] = value;
-        });
+        if (row.c) {
+          // Check if row.c is not null
+          row.c.forEach((cell, index) => {
+            if (cell) {
+              // Check if cell is not null
+              let value = cell.v;
+              if (typeof value === "string" && value.startsWith("Date")) {
+                value = cell.f;
+              }
+              const header = data.table.cols[index].label;
+              rowData[header] = value;
+            } else {
+              // alert("ERR_CODE:0003, VALUES NOT FOUND...");
+            }
+          });
+        }
         tableData.push(rowData);
       });
       return tableData; // Return tableData once it's populated
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      // Handle the error gracefully, such as displaying a message to the user
     });
 }
 //--------------------------------------------------------
