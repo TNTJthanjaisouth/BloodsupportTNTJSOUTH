@@ -1,1 +1,1 @@
-https://mohammadibbu.github.io/BloodDonation/
+https://tntjthanjaisouth.github.io/BloodsupportTNTJSOUTH/
